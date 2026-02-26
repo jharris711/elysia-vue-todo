@@ -23,7 +23,7 @@ const retrieveTodos = async ({}) => {
     const result = await db.select().from(table.todo)
 
     return result
-}
+};
 
 
 export { 

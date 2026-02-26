@@ -6,7 +6,7 @@ import { todosRouter } from './routes/todos';
 
 const app = new Elysia();
 
-app.get("/", () => "Hello Elysia")
+app.get("/", ({ redirect }) => redirect("/todos"))
 
 // Use todos plugin
 app.use(todosRouter)
