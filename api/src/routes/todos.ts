@@ -4,9 +4,9 @@ import { Todo } from "../db/model";
 import { createTodo, retrieveTodos } from "../controllers/todos";
 
 
-const todosRouter = new Elysia({ prefix: '/todos'});
-
 const { todos } = Todo.insert
+
+const todosRouter = new Elysia({ prefix: '/todos'});
 
 todosRouter.get('/', retrieveTodos)
 
@@ -17,4 +17,6 @@ todosRouter.post('/', createTodo, {
   })
 })
 
-export { todosRouter }
+export {
+  todosRouter
+}

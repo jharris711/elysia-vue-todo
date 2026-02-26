@@ -1,6 +1,11 @@
 import { createInsertSchema, createSelectSchema } from 'drizzle-typebox'
 import { table } from './schema'
-import { spreads } from './utils' // utility from docs
+/**
+ * utility from Elysia docs
+ * @see https://elysiajs.com/integrations/drizzle.html#utility
+ */
+import { spreads } from './utils'
+
 
 export const Todo = {
     insert: spreads({
