@@ -149,12 +149,14 @@
     
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3 " v-else-if="todos">
       <div class="col" v-for="todo in todos" :key="todo.id">
-        <div class="card" style="width: 18rem;">
+        <div class="card h-100 mh-100" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{ todo.title }}</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">ID: {{ todo.id }}</h6>
-            <p class="card-text">{{ todo.description }}</p>
-            <a href="#" class="card-link">View Todo</a>
+            <p class="card-text text-truncate">{{ todo.description }}</p>
+          </div>
+          <div class="card-footer text-body-secondary">
+            <a href="#" class="card-link bottom">View Todo</a>
           </div>
         </div>
       </div>
