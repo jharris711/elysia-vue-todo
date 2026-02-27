@@ -147,19 +147,17 @@
 
     <div class="row mt-3" v-else-if="error">Error: {{ error }}</div>
     
-    <div class="row mt-3" v-else-if="todos">
-      <ul v-for="todo in todos" :key="todo.id">
-        <li style="list-style: none;">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{ todo.title }}</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">ID: {{ todo.id }}</h6>
-              <p class="card-text">{{ todo.description }}</p>
-              <a href="#" class="card-link">View Todo</a>
-            </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3 " v-else-if="todos">
+      <div class="col" v-for="todo in todos" :key="todo.id">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ todo.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">ID: {{ todo.id }}</h6>
+            <p class="card-text">{{ todo.description }}</p>
+            <a href="#" class="card-link">View Todo</a>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
   
