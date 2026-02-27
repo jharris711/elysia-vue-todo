@@ -43,7 +43,25 @@
 
 <template>
     <RootLayout>
-        <div v-if="todo">To do view in vue: {{ todo.id }}</div>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-2"></div>
+                <div class="col">
+                    <div v-if="todo">
+                        <div class="card w-100 text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">{{  todo.title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">ID: {{ todo.id }}</h6>
+                                <p class="card-text">{{ todo.description }}</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>   
     </RootLayout>
 </template>
 
