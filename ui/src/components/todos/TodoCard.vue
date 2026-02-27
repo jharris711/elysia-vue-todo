@@ -20,9 +20,9 @@
             </p>
         </div>
         <div class="card-footer text-body-secondary">
-            <a href="#" class="card-link bottom">
+            <RouterLink :to="{ name: 'todoDetail', params: { id } }" class="card-link bottom">
                 View Todo
-            </a>
+            </RouterLink>
         </div>
     </div>
 </template>

@@ -1,7 +1,7 @@
 import { Elysia, t } from "elysia";
 
 import { Todo } from "../db/model";
-import { createTodo, retrieveTodos } from "../controllers/todos";
+import { createTodo, retrieveTodos, retrieveTodo } from "../controllers/todos";
 
 
 const TODOS_API_ENDPOINT = "/api/todos"
@@ -17,6 +17,7 @@ todosRouter
   })
   .get(TODOS_VIEWS_ENDPOINT, "This is the todos page")
   .get(TODOS_API_ENDPOINT, retrieveTodos)
+  .get(`${TODOS_API_ENDPOINT}/:id`, retrieveTodo)
   .post(TODOS_API_ENDPOINT, createTodo, {
     body: t.Object({
       title: todos.title,

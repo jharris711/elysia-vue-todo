@@ -1,30 +1,30 @@
 <script setup lang="ts">
-    import { ref } from 'vue'
+    import { ref } from 'vue';
 
     defineProps([
         'submitError',
         'isSubmitting',
-    ])
+    ]);
 
     // Define custom events this component can emit to its parent
     // This creates a typed 'submit' event that passes an object with title and description
     // Parent listens with: @submit="handleSubmit"
     const emit = defineEmits<{
         submit: [data: { title: string, description: string }]
-    }>()
+    }>();
 
-    const title = ref('')
-    const description = ref('')
+    const title       = ref('');
+    const description = ref('');
 
     const handleSubmit = (e: Event) => {
-        e.preventDefault()
+        e.preventDefault();
         emit('submit', {
             title: title.value,
             description: description.value
-        })
+        });
         // Clear form after emitting
-        title.value = ''
-        description.value = ''
+        title.value       = '';
+        description.value = '';
     }
 </script> 
 

@@ -5,17 +5,20 @@
     import TodoCard from '../components/todos/TodoCard.vue';
     import TodoForm from '@/components/todos/TodoForm.vue';
 
-    const todos = ref(null)
-    const isLoading = ref(true);
-    const error: Ref<(null | string), (null | string)> = ref(null);
-    const submitError = ref<string | null>(null);
-    const isSubmitting = ref(false);
+    
+    type ErrorRef = Ref<(null | string), (null | string)>
+
+    const todos           = ref(null)
+    const isLoading       = ref(true);
+    const error: ErrorRef = ref(null);
+    const submitError     = ref<string | null>(null);
+    const isSubmitting    = ref(false);
 
     const TODOS_API_ENDPOINT = "/api/todos"
 
     const fetchTodos = async () => {
         isLoading.value = true;
-        error.value = null;
+        error.value     = null;
 
         try {
             const response = await fetch(TODOS_API_ENDPOINT);
@@ -26,7 +29,7 @@
 
             todos.value = await response.json();
         } catch (err) {
-            const e = err  as Error
+            const e     = err  as Error
             error.value = e.message
         } finally {
             isLoading.value = false;
@@ -34,7 +37,7 @@
     }
 
     const handleSubmit = async (data: { title: string, description: string }) => {
-        submitError.value = null;
+        submitError.value  = null;
         isSubmitting.value = true;
 
         try {
@@ -56,7 +59,7 @@
             // Refresh todos list
             await fetchTodos();
         } catch (err) {
-            const e = err as Error;
+            const e           = err as Error;
             submitError.value = e.message;
         } finally {
             isSubmitting.value = false;
