@@ -1,9 +1,10 @@
 <script setup lang="ts">
-  import HomeView from './views/HomeView.vue';
 </script> 
 
 <template>
-  <HomeView />
+  <router-view v-slot="{ Component }">
+    <component :is="Component" />
+  </router-view>
 </template>
 
 <style scoped></style>
