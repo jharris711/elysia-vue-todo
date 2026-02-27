@@ -4,7 +4,7 @@ import { Todo } from "../db/model";
 import { createTodo, retrieveTodos, retrieveTodo } from "../controllers/todos";
 
 
-const TODOS_API_ENDPOINT = "/api/todos"
+const TODOS_API_ENDPOINT   = "/api/todos"
 const TODOS_VIEWS_ENDPOINT = "/todos"
 
 const { todos } = Todo.insert
