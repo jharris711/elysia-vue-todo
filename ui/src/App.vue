@@ -8,12 +8,14 @@
   const submitError = ref<string | null>(null);
   const isSubmitting = ref(false);
 
+  const TODOS_API_ENDPOINT = "/api/todos"
+
   const fetchTodos = async () => {
     isLoading.value = true;
     error.value = null;
 
     try {
-      const response = await fetch('/api/todos');
+      const response = await fetch(TODOS_API_ENDPOINT);
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -34,7 +36,7 @@
     isSubmitting.value = true;
 
     try {
-      const response = await fetch('/api/todos', {
+      const response = await fetch(TODOS_API_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
