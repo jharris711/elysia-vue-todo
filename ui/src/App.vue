@@ -13,8 +13,7 @@
     error.value = null;
 
     try {
-      const response = await fetch('/api/todos')
-      console.log(response)
+      const response = await fetch('/api/todos');
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
