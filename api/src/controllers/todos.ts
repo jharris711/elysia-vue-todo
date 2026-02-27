@@ -2,15 +2,7 @@ import { db } from "../db";
 import { table } from '../db/schema';
 
 
-interface request {
-    body: {
-        title: string,
-        description: string,
-    }
-}
-
-
-const createTodo = async ({ body }: request) => {
+const createTodo = async ({ body }: { body: { title: string, description: string } }) => {
   const result = await db.insert(table.todo).values({
       title: body.title,
       description: body.description
